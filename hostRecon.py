@@ -1,7 +1,4 @@
-import subprocess
-import requests
-import base64
-import os
+import subprocess, requests, base64, os
 
 def upload_pastebin(data):
     

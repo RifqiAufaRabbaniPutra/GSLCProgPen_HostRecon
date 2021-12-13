@@ -18,8 +18,8 @@ def upload(data):
 
 def run_cmd(cmd):
     results = []
-    for i in cmd:
-        new_process = subprocess.Popen(args=i, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
+    for commands in cmd:
+        new_process = subprocess.Popen(args=commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, shell=True)
         output, error = new_process.communicate()
         if error != b'':
             print(error)

